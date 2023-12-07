@@ -1,0 +1,21 @@
+services:
+  PrismaConfig:
+    factory:
+      class: ../../../Context/shared/infrastructure/persistence/prisma/PrismaFactory
+      method: 'createClient'
+
+  Entrances.domain.repository:
+    class: ../../../Context/blog/Entrances/infrastructure/Repository
+    arguments: ['@PrismaConfig']
+
+  Entrances.application.EntranceCreator:
+    class: ../../../Context/blog/Entrances/application/EntranceCreator
+    arguments: ['@Entrances.domain.repository']
+    
+  Entrances.application.EntranceFinder:
+    class: ../../../Context/blog/Entrances/application/EntranceFinder
+    arguments: ['@Entrances.domain.repository']
+
+  Entrances.application.EntranceSearcher:
+    class: ../../../Context/blog/Entrances/application/EntranceSearcher
+    arguments: ['@Entrances.domain.repository']

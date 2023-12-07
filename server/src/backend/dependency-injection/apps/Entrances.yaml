@@ -1,0 +1,12 @@
+services:
+  controllers.getEntranceController:
+    class: ../../controllers/Entrances/getEntrance
+    arguments: ['@Entrances.application.EntranceFinder']
+
+  controllers.getEntrancesController:
+    class: ../../controllers/Entrances/getEntrances
+    arguments: ['@Entrances.application.EntranceSearcher']
+  
+  controllers.postEntranceController:
+    class: ../../controllers/Entrances/postEntrance
+    arguments: ['@Entrances.application.EntranceCreator']
